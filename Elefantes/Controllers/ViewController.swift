@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     let api = API()
     
     let reuseIdentifier = "Celula"
+    var favoritos: Bool = false
         
     lazy var uitv_Tabela: UITableView = {
 
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
         
         title = "Lista de Elefantes"
         self.view.addSubview(self.uitv_Tabela)
+        self.createRightBarButton()
         
         self.populaArrayDeElefantesAtualizaTableView()
         //self.arrayDeElefantes = populaArrayDeElefantes()
@@ -50,10 +52,34 @@ class ViewController: UIViewController {
     
     func populaArrayDeElefantesAtualizaTableView() {
         
-        self.arrayDeElefantes = api.getElephants(urlString: api.setElephantsURL(), method: .GET)
+        if !favoritos {
+            self.arrayDeElefantes = api.getElephants(urlString: api.setElephantsURL(), method: .GET)
+        } else {
+            let elefantes = self.getUserDefaults()
+            
+            for item in elefantes {
+                let elef = Elefante(name: item)
+                self.arrayDeElefantes.append(elef)
+            }
+            
+        }
+        
         self.uitv_Tabela.reloadData()
         
         //self.descobrirAsEspecies(elefantes: self.arrayDeElefantes)
+    }
+    
+    func createRightBarButton() {
+        let starImage = UIImage(systemName: "star.fill")
+        let rightButton = UIBarButtonItem(image: starImage, style: UIBarButtonItem.Style.plain, target: self, action: #selector(getFavotiros))
+        rightButton.tintColor = UIColor(red: 1.00, green: 0.80, blue: 0.14, alpha: 0.55)
+        self.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc func getFavotiros() {
+        let viewController = ViewController()
+        viewController.favoritos = true
+        self.show(viewController, sender: nil)
     }
     
 //    func populaArrayDeElefantes() -> [Elefante] {

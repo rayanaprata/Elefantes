@@ -18,6 +18,8 @@ class DetailViewController: UIViewController {
         tabela.dataSource = self
         tabela.delegate = self
         
+        //tabela.backgroundColor = .clear
+        
         return tabela
 
     }()
@@ -35,6 +37,30 @@ class DetailViewController: UIViewController {
         
         view.addSubview(uitv_Tabela)
         title = elefanteTocado.name
+        
+        view.backgroundColor = .clear
+        
+//        if let sex = self.elefanteTocado.sex {
+//            self.setBackgroundColor(sex: sex)
+//        }
+        
+    }
+    
+    func setBackgroundColor(sex: String) {
+//        switch sex {
+//        case "Male":
+//            self.view.backgroundColor = .systemIndigo
+//        case "Female":
+//            self.view.backgroundColor = .systemPink
+//        default:
+//            self.view.backgroundColor = .white
+//        }
+        
+        let blur = UIBlurEffect(style: .systemChromeMaterial)
+        let blurView = UIVisualEffectView(effect: blur)
+        blurView.frame = self.view.frame
+        self.view.addSubview(blurView)
+        self.view.sendSubviewToBack(blurView)
     }
     
 }
@@ -42,7 +68,7 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,6 +121,9 @@ extension DetailViewController: UITableViewDataSource {
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 16.0)
                 cell.textLabel?.numberOfLines = 0
             }
+        case 6:
+            cell.textLabel?.text = "Adicionar aos favoritos"
+            cell.backgroundColor = UIColor(red: 1.00, green: 0.80, blue: 0.14, alpha: 0.55)
         default:
             return UITableViewCell()
         }
@@ -115,6 +144,21 @@ extension DetailViewController: UITableViewDelegate {
 //            show(safariViewController, sender: nil)
             showDetailViewController(safariViewController, sender: nil)
         }
+        
+        if indexPath.row == 6 {
+            
+            guard let nome = elefanteTocado.name else { return }
+            self.saveUserDefaults(nome: nome)
+            
+            // defaults.synchronize()
+            
+//            salvar no UserDefaults = [Elefante]
+//            dicionário (key, value) = (elefantes, [Elefante])
+//            criar uma ViewController para mostrar os favoritos
+//            criar a exclusao de um elefante favorito
+        }
+        
     }
+    
 }
 

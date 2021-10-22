@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		886269B5272308D7002A5584 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 886269B4272308D7002A5584 /* Kingfisher */; };
 		886269B727233381002A5584 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886269B627233381002A5584 /* ImageViewCell.swift */; };
+		886269B9272357CB002A5584 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886269B8272357CB002A5584 /* UIViewController.swift */; };
 		C7A709A4271EF199004CB131 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A709A3271EF199004CB131 /* Sex.swift */; };
 		C7ABCCBC271DA374002972FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABCCBB271DA374002972FF /* AppDelegate.swift */; };
 		C7ABCCC0271DA374002972FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABCCBF271DA374002972FF /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		886269B627233381002A5584 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
+		886269B8272357CB002A5584 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		C7A709A3271EF199004CB131 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		C7ABCCB8271DA374002972FF /* Elefantes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elefantes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7ABCCBB271DA374002972FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				C7ABCCBF271DA374002972FF /* ViewController.swift */,
 				C7ABCCD9271DD882002972FF /* DetailViewController.swift */,
+				886269B8272357CB002A5584 /* UIViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				C7ABCCC0271DA374002972FF /* ViewController.swift in Sources */,
 				C7ABCCD6271DBE16002972FF /* EndPoints.swift in Sources */,
 				C7ABCCD8271DC241002972FF /* HTTPMethod.swift in Sources */,
+				886269B9272357CB002A5584 /* UIViewController.swift in Sources */,
 				C7ABCCD0271DAF43002972FF /* Elefante.swift in Sources */,
 				C7A709A4271EF199004CB131 /* Sex.swift in Sources */,
 				C7ABCCD4271DBD05002972FF /* API.swift in Sources */,
